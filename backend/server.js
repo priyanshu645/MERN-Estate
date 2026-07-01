@@ -1,17 +1,21 @@
-const express = require("express");
 const dotenv = require("dotenv");
+dotenv.config();
+const express = require("express");
 const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 const connectDB = require("./config/db");
-const User = require("./models/User");
+//const User = require("./models/User");
 const propertyRoutes = require("./routes/propertyRoutes");
-dotenv.config();
 
 connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use(express.json());
 
 app.use("/api/users", userRoutes);

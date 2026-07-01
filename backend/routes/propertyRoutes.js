@@ -18,8 +18,8 @@ const { protect } = require("../middleware/authMiddleware");
 
 router.get("/", getProperties);
 router.get("/my-properties", protect, getMyProperties);
+router.get("/stats", protect, getDashboardStats);
 router.get("/:id", getPropertyById);
-router.get("/stats",protect,getDashboardStats);
 router.post("/",protect,authorize("owner", "admin"),upload.array("images", 5),createProperty);
 router.put("/:id", protect, updateProperty);
 router.delete("/:id", protect, deleteProperty);

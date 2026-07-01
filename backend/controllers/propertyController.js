@@ -1,5 +1,5 @@
 const Property = require("../models/Property");
-const User = require("../models/User");
+const User = require("../models/user");
 
 /*const createProperty = async (req, res) => {
   try {
@@ -68,7 +68,7 @@ const getProperties = async (req, res) => {
 
 const createProperty = async (req, res) => {
   try {
-    const imageUrls = req.files.map(
+    const imageUrls = (req.files || []).map(
       (file) => file.path
     );
 
