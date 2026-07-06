@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://estate-hu.netlify.app/",
+    origin: "https://estate-hu.netlify.app",
   })
 );
 app.use(express.json());
