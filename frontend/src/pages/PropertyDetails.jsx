@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FiHeart, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import { Link, useParams } from "react-router-dom";
-
+import AIAdvisor from "./AIAdvisor";
 import { addToFavorites } from "../services/authService";
 import { getPropertyById } from "../services/propertyService";
 import { formatPrice, getPropertyImage, pluralize } from "../utils/format";
@@ -54,7 +54,7 @@ export default function PropertyDetails() {
   if (loading) {
     return (
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-        <div className="h-[460px] animate-pulse rounded-lg bg-slate-200" />
+        <div className="h-115 animate-pulse rounded-lg bg-slate-200" />
       </div>
     );
   }
@@ -83,7 +83,7 @@ export default function PropertyDetails() {
           <img
             src={getPropertyImage(property)}
             alt={property.title}
-            className="h-[460px] w-full object-cover"
+            className="h-115 w-full object-cover"
           />
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
@@ -200,6 +200,7 @@ export default function PropertyDetails() {
           )}
         </aside>
       </div>
+      <AIAdvisor propertyId={property._id} />
     </div>
   );
 }

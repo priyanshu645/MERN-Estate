@@ -1,6 +1,7 @@
 import { FiArrowRight, FiSearch } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { aiSearch } from "../../services/aiService";
 
 export default function Hero() {
   const [location, setLocation] = useState("");
@@ -15,6 +16,24 @@ export default function Hero() {
     }
 
     navigate(`/properties${params.toString() ? `?${params.toString()}` : ""}`);
+  };
+
+  const handleAISearch = async () => {
+    try {
+      const filters = await aiSearch(location);
+
+      const params = new URLSearchParams();
+
+      Object.entries(filters).forEach(([key, value]) => {
+        if (value !== null && value !== "") {
+          params.append(key, value);
+        }
+      });
+
+      navigate(`/properties?${params.toString()}`);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -59,6 +78,13 @@ export default function Hero() {
           >
             Search
             <FiArrowRight />
+          </button>
+          <button
+            type="button"
+            onClick={handleAISearch}
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-green-600 px-5 text-sm font-semibold text-white hover:bg-green-700"
+          >
+            🤖 AI Search
           </button>
         </form>
 

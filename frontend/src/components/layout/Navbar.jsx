@@ -40,6 +40,7 @@ export default function Navbar() {
           <NavLink to="/properties" className={navLinkClass}>
             Properties
           </NavLink>
+          <NavLink to="/ai-recommend" className={navLinkClass}>AI Recommendation</NavLink>
           {isAuthenticated && isOwner && (
             <>
               <NavLink to="/owner/dashboard" className={navLinkClass}>

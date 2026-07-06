@@ -9,6 +9,7 @@ import PropertyDetails from "../pages/PropertyDetails";
 import AddProperty from "../pages/owner/AddProperty";
 import MyProperties from "../pages/owner/MyProperties";
 import OwnerDashboard from "../pages/owner/OwnerDashboard";
+import AIRecommendations from "../pages/AIRecommendations";
 
 export default function AppRoutes() {
   return (
@@ -49,6 +50,15 @@ export default function AppRoutes() {
         element={
           <ProtectedRoute roles={["owner", "admin"]}>
             <MyProperties />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/ai-recommend"
+        element={
+          <ProtectedRoute>
+            <AIRecommendations />
           </ProtectedRoute>
         }
       />
