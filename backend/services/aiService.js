@@ -63,7 +63,7 @@ ${query}
 `;
 
   const completion = await groq.chat.completions.create({
-    model: "llama-3.3-70b-versatile",
+    model: "openai/gpt-oss-120b",
     temperature: 0,
     messages: [
       {
@@ -119,7 +119,7 @@ Never invent property details.
 `;
 
   const completion = await groq.chat.completions.create({
-    model: "llama-3.3-70b-versatile",
+    model: "openai/gpt-oss-120b",
     temperature: 0.4,
     messages: [
       {
@@ -193,7 +193,7 @@ Only use the provided id.
 `;
 
   const completion = await groq.chat.completions.create({
-    model: "llama-3.3-70b-versatile",
+    model: "openai/gpt-oss-120b",
 
     temperature: 0.2,
 
